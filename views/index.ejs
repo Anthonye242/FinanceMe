@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Personal Finance Tracker</title>
 </head>
 <body>
-  <% if (user) { %>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
-    <p>
-      <a href="/auth/sign-out">Sign out</a>
-    </p>
-  <% } else { %>
-    <h1>Welcome to the app, guest.</h1>
-    <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
-    </p>
-  <% } %>
-  <p><a href="/vip-lounge">Get into the VIP Users Only lounge!</a></p>
+  <img src="https://i.imgur.com/yOWswGa.jpg" alt="Finance Image" class="welcome-image">
+    <% if (user) { %>
+    <h1>Welcome to iFinance <%= user.username %>!</h1>
+    <a href="/auth/sign-out">Sign out</a>
+    <% } else { %>
+    <h1>Welcome to iFinance</h1>
+    <p>A all in one Finances Tracker</p>
+    <a href="/auth/sign-up">Sign up</a> or
+    <a href="/auth/sign-in">Sign in</a>.
+    <% } %>
 </body>
 </html>
