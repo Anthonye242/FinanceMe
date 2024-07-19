@@ -49,11 +49,11 @@ const transactionSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    type: {
-        type: String,
-        required: true,
-        enum: ['income', 'expense'],
-    },
+    // type: {
+    //     type: String,
+    //     required: true,
+    //     // enum: ['income', 'expense'],
+    // },
     date: {
         type: Date,
         required: true,

@@ -8,11 +8,11 @@
 </head>
 <body>
   <h1>Transaction Details</h1>
-  <p><strong>Amount:</strong> <%= transaction.amount %></p>
-  <p><strong>Type:</strong> <%= transaction.type %></p>
-  <p><strong>Category:</strong> <%= transaction.category %></p>
-  <p><strong>Date:</strong> <%= transaction.date.toDateString() %></p>
-  <p><strong>Description:</strong> <%= transaction.description %></p>
+  <p>Amount: <%= transaction.amount %></p>
+  <p>Type: <%= transaction.type %></p>
+  <p>Category: <%= transaction.category %></p>
+  <p>Date: <%= transaction.date.toDateString() %></p>
+  <p>Description: <%= transaction.description %></p>
   <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit">Edit</a>
   <form action="/users/<%= user._id %>/transactions/<%= transaction._id %>?_method=DELETE" method="POST">
     <button type="submit">Delete</button>
