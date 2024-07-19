@@ -17,7 +17,7 @@
   <main>
     <section class="list-section">
       <ul class="item-list">
-        <% transactions.forEach(transaction => { %>
+        <% transactions.forEach((transaction) => { %>
           <li class="item">
             <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
               <%= transaction.amount %> - <%= transaction.category %>
