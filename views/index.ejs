@@ -4,18 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Finance Tracker</title>
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <img src="https://i.imgur.com/yOWswGa.jpg" alt="Finance Image" class="welcome-image">
-    <% if (user) { %>
-    <h1>Welcome to iFinance <%= user.username %>!</h1>
-    <a href="/auth/sign-out">Sign out</a>
-    <% } else { %>
-    <h1>Welcome to iFinance</h1>
-    <p>A all in one Finances Tracker</p>
-    <a href="/auth/sign-up">Sign up</a> or
-    <a href="/auth/sign-in">Sign in</a>.
-    <% } %>
+  <% if (user) { %>
+    <header class="header">
+      <h1>Welcome to iFinance, <%= user.username %>!</h1>
+      <a href="/auth/sign-out" class="nav-button">Sign out</a>
+    </header>
+  <% } else { %>
+    <header class="header">
+      <h1>Welcome to iFinance</h1>
+      <p>A all in one Finances Tracker</p>
+    </header>
+    <div class="auth-links">
+      <a href="/auth/sign-up" class="button">Sign up</a> or
+      <a href="/auth/sign-in" class="button">Sign in</a>.
+    </div>
+  <% } %>
 </body>
 </html>

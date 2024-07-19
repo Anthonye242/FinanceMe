@@ -7,18 +7,25 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <h1>Expenses</h1>
-  <a href="/users/<%= user._id %>/expenses/new">Add New Expense</a>
-  <ul>
-    <% expenses.forEach(expense => { %>
-      <li>
-        <a href="/users/<%= user._id %>/expenses/<%= expense._id %>">
-          <%= expense.amount %> - <%= expense.category %>
-        </a>
-      </li>
-    <% }) %>
-  </ul>
-  <a href="/users/<%= user._id %>/dashboard">Back to Dashboard</a>
+  <header class="header">
+    <h1>Expenses</h1>
+    <nav>
+      <a href="/users/<%= user._id %>/dashboard" class="button">Back to Dashboard</a>
+      <a href="/users/<%= user._id %>/expenses/new" class="button">Add New Expense</a>
+    </nav>
+  </header>
+  <main>
+    <section class="list-section">
+      <ul class="item-list">
+        <% expenses.forEach(expense => { %>
+          <li class="item">
+            <a href="/users/<%= user._id %>/expenses/<%= expense._id %>">
+              <%= expense.amount %> - <%= expense.category %>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
-

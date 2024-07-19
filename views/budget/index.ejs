@@ -7,17 +7,25 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <h1>Budgets</h1>
-  <a href="/users/<%= user._id %>/budget/new">Add New Budget</a>
-  <ul>
-    <% budgets.forEach((budget) => { %>
-      <li>
-        <a href="/users/<%= user._id %>/budget/<%= budget._id %>">
-          <%= budget.category %> - $<%= budget.amount %> (from <%= budget.startDate.toDateString() %> to <%= budget.endDate.toDateString() %>)
-        </a>
-      </li>
-    <% }) %>
-  </ul>
-  <a href="/users/<%= user._id %>/dashboard">Back to Dashboard</a>
+  <header class="header">
+    <h1>Budgets</h1>
+    <nav>
+      <a href="/users/<%= user._id %>/dashboard" class="button">Back to Dashboard</a>
+      <a href="/users/<%= user._id %>/budget/new" class="button">Add New Budget</a>
+    </nav>
+  </header>
+  <main>
+    <section class="list-section">
+      <ul class="item-list">
+        <% budgets.forEach((budget) => { %>
+          <li class="item">
+            <a href="/users/<%= user._id %>/budget/<%= budget._id %>">
+              <%= budget.category %> - $<%= budget.amount %> (from <%= budget.startDate.toDateString() %> to <%= budget.endDate.toDateString() %>)
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

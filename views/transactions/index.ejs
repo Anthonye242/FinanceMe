@@ -7,17 +7,25 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <h1>Transactions</h1>
-  <a href="/users/<%= user._id %>/transactions/new">Add New Transaction</a>
-  <ul>
-    <% transactions.forEach(transaction => { %>
-      <li>
-        <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
-          <%= transaction.amount %> - <%= transaction.category %>
-        </a>
-      </li>
-    <% }) %>
-  </ul>
-  <a href="/users/<%= user._id %>/dashboard">Back to Dashboard</a>
+  <header class="header">
+    <h1>Transactions</h1>
+    <nav>
+      <a href="/users/<%= user._id %>/dashboard" class="button">Back to Dashboard</a>
+      <a href="/users/<%= user._id %>/transactions/new" class="button">Add New Transaction</a>
+    </nav>
+  </header>
+  <main>
+    <section class="list-section">
+      <ul class="item-list">
+        <% transactions.forEach(transaction => { %>
+          <li class="item">
+            <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
+              <%= transaction.amount %> - <%= transaction.category %>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
