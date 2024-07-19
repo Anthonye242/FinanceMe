@@ -3,14 +3,15 @@ const router = express.Router();
 const User = require('../models/user.js');
 
 router.get('/new', async (req, res) => {
-  res.render('budgets/new.ejs');
+  res.render('budget/new.ejs');
 });
 
 router.get('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    res.render('budgets/index.ejs', {
-      budgets: currentUser.budgets,
+    console.log(currentUser)
+    res.render('budget/index.ejs', {
+      budgets: currentUser.budgetGoals,
     });
   } catch (error) {
     console.log(error);
@@ -21,9 +22,9 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    currentUser.budgets.push(req.body);
+    currentUser.budgetGoals.push(req.body);
     await currentUser.save();
-    res.redirect(`/users/${currentUser._id}/budgets`);
+    res.redirect(`/users/${currentUser._id}/budget`);
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -33,8 +34,8 @@ router.post('/', async (req, res) => {
 router.get('/:budgetId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    const budget = currentUser.budgets.id(req.params.budgetId);
-    res.render('budgets/show.ejs', {
+    const budget = currentUser.budgetGoals.id(req.params.budgetId);
+    res.render('budget/show.ejs', {
       budget: budget,
     });
   } catch (error) {
@@ -46,9 +47,9 @@ router.get('/:budgetId', async (req, res) => {
 router.delete('/:budgetId', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    currentUser.budgets.id(req.params.budgetId).deleteOne();
+    currentUser.budgetGoals.id(req.params.budgetId).deleteOne();
     await currentUser.save();
-    res.redirect(`/users/${currentUser._id}/budgets`);
+    res.redirect(`/users/${currentUser._id}/budget`);
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -58,8 +59,8 @@ router.delete('/:budgetId', async (req, res) => {
 router.get('/:budgetId/edit', async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
-    const budget = currentUser.budgets.id(req.params.budgetId);
-    res.render('budgets/edit.ejs', {
+    const budget = currentUser.budgetGoals.id(req.params.budgetId);
+    res.render('budget/edit.ejs', {
       budget: budget,
     });
     }catch (error) {
@@ -71,10 +72,10 @@ router.get('/:budgetId/edit', async (req, res) => {
 router.put('/:budgetId', async (req, res) => {
     try {
       const currentUser = await User.findById(req.session.user._id);
-      const budget = currentUser.budgets.id(req.params.budgetId);
+      const budget = currentUser.budgetGoals.id(req.params.budgetId);
       budget.set(req.body);
       await currentUser.save();
-      res.redirect(`/users/${currentUser._id}/budgets/${req.params.budgetId}`);
+      res.redirect(`/users/${currentUser._id}/budget/${req.params.budgetId}`);
     } catch (error) {
       console.log(error);
       res.redirect('/');

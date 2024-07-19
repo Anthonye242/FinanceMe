@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Expense Details</h1>
+  <p><strong>Amount:</strong> <%= expense.amount %></p>
+  <p><strong>Category:</strong> <%= expense.category %></p>
+  <p><strong>Date:</strong> <%= expense.date.toDateString() %></p>
+  <p><strong>Description:</strong> <%= expense.description %></p>
+  <a href="/users/<%= user._id %>/expenses/<%= expense._id %>/edit">Edit</a>
+  <form action="/users/<%= user._id %>/expenses/<%= expense._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  <a href="/users/<%= user._id %>/expenses">Back to Expenses</a>
+</body>
+</html>

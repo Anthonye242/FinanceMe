@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const budgetGoalSchema = new mongoose.Schema({
+const budgetSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
@@ -45,14 +45,14 @@ const transactionSchema = new mongoose.Schema({
         required: true,
         min: 0,
     },
+    category: {
+        type: String,
+        required: true,
+    },
     type: {
         type: String,
         required: true,
         enum: ['income', 'expense'],
-    },
-    category: {
-        type: String,
-        required: true,
     },
     date: {
         type: Date,
@@ -73,7 +73,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    budgetGoals: [budgetGoalSchema], // Embedding Budget Goals
+    budgetGoals: [budgetSchema], // Embedding Budget Goals
     expenses: [expenseSchema], // Embedding Expenses
     transactions: [transactionSchema], // Embedding Transactions
 });

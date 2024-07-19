@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Budget Goal</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Edit Budget Goal</h1>
+  <form action="/users/<%= user._id %>/budget/<%= budget._id %>?_method=PUT" method="POST">
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" value="<%= budget.category %>" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" value="<%= budget.amount %>" required>
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" value="<%= budget.startDate.toISOString().split('T')[0] %>" required>
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" value="<%= budget.endDate.toISOString().split('T')[0] %>" required>
+
+    <button type="submit">Update Budget Goal</button>
+  </form>
+  <a href="/users/<%= user._id %>/budget/<%= budget._id %>">Back to Budget Goal</a>
+</body>
+</html>

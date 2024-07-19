@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budgets</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Budgets</h1>
+  <a href="/users/<%= user._id %>/budget/new">Add New Budget</a>
+  <ul>
+    <% budgets.forEach((budget) => { %>
+      <li>
+        <a href="/users/<%= user._id %>/budget/<%= budget._id %>">
+          <%= budget.category %> - $<%= budget.amount %> (from <%= budget.startDate.toDateString() %> to <%= budget.endDate.toDateString() %>)
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/users/<%= user._id %>/dashboard">Back to Dashboard</a>
+</body>
+</html>

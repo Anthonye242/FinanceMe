@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Budget</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Create New Budget</h1>
+  <form action="/users/<%= user._id %>/budget" method="POST">
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required>
+    
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required min="0">
+    
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" required>
+    
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" required>
+    
+    <button type="submit">Add Budget</button>
+  </form>
+  <a href="/users/<%= user._id %>/budget">Back to Budget Goals</a>
+</body>
+</html>

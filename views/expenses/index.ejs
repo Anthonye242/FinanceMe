@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expenses</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Expenses</h1>
+  <a href="/users/<%= user._id %>/expenses/new">Add New Expense</a>
+  <ul>
+    <% expenses.forEach(expense => { %>
+      <li>
+        <a href="/users/<%= user._id %>/expenses/<%= expense._id %>">
+          <%= expense.amount %> - <%= expense.category %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/users/<%= user._id %>/dashboard">Back to Dashboard</a>
+</body>
+</html>
+

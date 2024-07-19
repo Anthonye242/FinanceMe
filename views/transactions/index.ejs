@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Transactions</h1>
+  <a href="/users/<%= user._id %>/transactions/new">Add New Transaction</a>
+  <ul>
+    <% transactions.forEach(transaction => { %>
+      <li>
+        <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>">
+          <%= transaction.amount %> - <%= transaction.category %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/users/<%= user._id %>/dashboard">Back to Dashboard</a>
+</body>
+</html>

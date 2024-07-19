@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Transaction Details</h1>
+  <p><strong>Amount:</strong> <%= transaction.amount %></p>
+  <p><strong>Type:</strong> <%= transaction.type %></p>
+  <p><strong>Category:</strong> <%= transaction.category %></p>
+  <p><strong>Date:</strong> <%= transaction.date.toDateString() %></p>
+  <p><strong>Description:</strong> <%= transaction.description %></p>
+  <a href="/users/<%= user._id %>/transactions/<%= transaction._id %>/edit">Edit</a>
+  <form action="/users/<%= user._id %>/transactions/<%= transaction._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  <a href="/users/<%= user._id %>/transactions">Back to Transactions</a>
+</body>
+</html>

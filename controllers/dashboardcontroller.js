@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 // Route for rendering the dashboard view
 router.get('/', async (req, res) => {
-    res.render('dashboard/index');
+    res.render('dashboard');
 });
 
 

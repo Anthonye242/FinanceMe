@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to FinanceMe, <%= user.username %>!</h1>
+    <nav>
+      <ul>
+        <li><a href="/auth/sign-out">Sign out</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Dashboard</h2>
+      <div class="dashboard-options">
+        <div class="option">
+          <h3>Transactions</h3>
+          <p>View and manage your transactions.</p>
+          <a href="/users/<%=user._id%>/transactions">Go to Transactions</a>
+        </div>
+        <div class="option">
+          <h3>Expenses</h3>
+          <p>Track and analyze your expenses.</p>
+          <a href="/users/<%=user._id%>/expenses">Go to Expenses</a>
+        </div>
+        <div class="option">
+          <h3>Budget Goals</h3>
+          <p>Set and monitor your budget goals.</p>
+          <a href="/users/<%=user._id%>/budget">Go to Budget Goals</a>
+        </div>
+      </div>
+    </section>
+  </main>  
+</body>
+</html>
